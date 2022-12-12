@@ -28,7 +28,7 @@ export default defineConfig({
     }),
     Pages({
       exclude: ["**/components/*.vue"],
-      importMode(filepath, options) {
+      // importMode(filepath, options) {
         // default resolver
         // for (const page of options.dirs) {
         //   if (page.baseRoute === '' && filepath.startsWith(`/${page.dir}/index`))
@@ -36,8 +36,13 @@ export default defineConfig({
         // }
         // return 'async'
         // Load about page synchronously, all other pages are async.
-        return filepath.indexOf("about") > -1 ? "sync" : "async";
-      },
+        // return filepath.indexOf("about") > -1 ? "sync" : "async";
+      // },
     }),
   ],
+  resolve: {
+    alias: {
+      "@": "/src",
+    },
+  },
 });
