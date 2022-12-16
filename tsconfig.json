@@ -12,9 +12,11 @@
     "lib": ["DOM", "ESNext"],
     "skipLibCheck": true,
     "noEmit": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
+    "types": ["node"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"],
+      "~/*": ["src/*"]
     }
   },
   "include": [
@@ -22,7 +24,9 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "auto-imports.d.ts"
+    "auto-imports.d.ts",
+    "components.d.ts",
+    "src"
   ],
   "exclude": ["node_modules", "dist"],
   "references": [{ "path": "./tsconfig.node.json" }]

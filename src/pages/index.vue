@@ -1,11 +1,10 @@
 <script lang="tsx">
-import IconParkVue from '@/components/IconPark.vue';
-
-import { Hockey } from "@icon-park/vue-next"
+import BannerVue from '@/components/common/Banner.vue';
 export default defineComponent({
-    render() {
-        return <div>
-            <IconParkVue icon={Hockey}></IconParkVue>
+    setup() {
+
+        return () => <div>
+            <BannerVue />
         </div>;
     }
 })
