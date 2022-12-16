@@ -1,10 +1,9 @@
-import axios, { type AxiosRequestConfig } from "axios";
-
+import axios, { type AxiosRequestConfig, type AxiosResponse } from "axios";
+import { ElMessage } from "element-plus";
 axios.defaults.baseURL = localStorage.getItem("BASE_URL")?.toString();
 axios.defaults.timeout = 20 * 1000;
 axios.defaults.maxBodyLength = 5 * 1024 * 1024;
 axios.defaults.withCredentials = true;
-
 axios.interceptors.request.use(
   (config: AxiosRequestConfig | any) => {
     config = {
@@ -19,10 +18,17 @@ axios.interceptors.request.use(
 );
 
 axios.interceptors.response.use(
-  (response) => {
-    return response;
+  //@ts-ignorex
+  (response: AxiosResponse) => {
+    if (response.status == 200) {
+      return response;
+    } else {
+      ElMessage.error(response.data.code + "");
+      throw Error(response.data.code);
+    }
   },
   (error) => {
+    console.log(error);
     return Promise.reject(error);
   }
 );
@@ -100,13 +106,12 @@ const _delete = (url: string, params: unknown) => {
       });
   });
 };
-
 interface Http {
   get<T>(url: string, params?: unknown): Promise<T>;
   put<T>(url: string, params?: unknown): Promise<T>;
   delete<T>(url: string, params?: unknown): Promise<T>;
   post<T>(url: string, params?: unknown): Promise<T>;
-  download<T>(url: string): void;
+  download(url: string): void;
   upload<T>(url: string, params: unknown): Promise<T>;
 }
 

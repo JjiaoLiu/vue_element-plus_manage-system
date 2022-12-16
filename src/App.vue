@@ -1,7 +1,7 @@
 <script lang="tsx">
 import Host from './Host.vue';
 import { useHostStore } from './stores/host';
-import HeaderVue from '@/components/layout/Header.vue'
+import HeaderVue from '@/components/layout/header/Header.vue'
 export default defineComponent({
   setup() {
     let hostStore = useHostStore()
