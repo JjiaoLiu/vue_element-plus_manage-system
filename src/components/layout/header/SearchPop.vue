@@ -1,8 +1,8 @@
 <template>
     <el-popover :width="300" :visible="visible">
         <template #reference>
-            <el-input v-model="searchKeyword" @blur="visible = false" @focus="visible = true" placeholder="搜索音乐，MV，歌单"
-                :prefix-icon="Search" clearable>
+            <el-input v-model="searchKeyword" @blur="visible = false" @focus="visible = true" placeholder="搜索"
+                :prefix-icon="Search" class=" w-40" size="small" clearable>
             </el-input>
         </template>
         <template #default>
@@ -66,9 +66,9 @@ const loading = ref(false)
 let suggest = reactive<SearchSuggest>({} as SearchSuggest)
 let searchHotDetail = ref<SearchHotDetail[]>([])
 watch(visible, async (n, _o) => {
-    if (!n) return
+    if(!n) return
     loading.value = true;
-    if (searchKeyword.value) {
+    if(searchKeyword.value) {
         let { result } = await useSearchSuggest(searchKeyword.value);
         suggest = Object.assign(suggest, result)
         showHot.value = false;
@@ -81,7 +81,7 @@ watch(visible, async (n, _o) => {
 })
 watch(searchKeyword, debounce(async (n, _o) => {
     loading.value = true;
-    if (!n) {
+    if(!n) {
         let { data } = await useSearchHotDetail("");
         searchHotDetail.value = data;
         showHot.value = true
@@ -95,10 +95,10 @@ watch(searchKeyword, debounce(async (n, _o) => {
 </script>
 <style lang="postcss" scoped>
 :deep(.el-input__wrapper) {
-    @apply rounded-full shadow-none border-gray-300 bg-gray-100 border-solid border text-sm
+    @apply rounded-full shadow-none bg-gray-100 placeholder:text-sm
 }
 
 :deep(.el-input__wrapper.is-focus) {
-    @apply shadow-none border-emerald-300 border-solid border
+    @apply shadow-none
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        broadcast
+        attention
     </div>
 </template>
 

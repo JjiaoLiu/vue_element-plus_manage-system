@@ -1,6 +1,6 @@
 <template>
     <div>
-        broadcast
+songs
     </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
     <div>
-        broadcast
+        history
     </div>
 </template>
 

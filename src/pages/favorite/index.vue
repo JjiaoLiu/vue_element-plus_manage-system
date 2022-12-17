@@ -1,6 +1,6 @@
 <template>
     <div>
-        broadcast
+        favorite
     </div>
 </template>
 

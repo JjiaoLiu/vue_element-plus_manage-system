@@ -1,9 +1,11 @@
 <template>
-    <div class="flex items-center cursor-pointer">
-        <el-avatar class=" flex-none" icon="el-icon-user-solid" size="small" shape="circle"
-            :src="profile?.avatarUrl ?? ''" fit="fill"></el-avatar>
-        <span class="text-xs ml-1.5" v-if="isLogin">{{ profile.userName }}</span>
-        <span class="text-xs ml-1.5" v-else @click="showLogin = true">点击登录</span>
+    <div class="flex items-center cursor-pointer px-2">
+        <el-avatar class=" flex-none" icon="el-icon-user-solid" shape="circle" :src="profile?.avatarUrl ?? circleUrl"
+            fit="fill">
+        </el-avatar>
+        <span class="ml-1.5" v-if="isLogin">{{ profile.nickname }}</span>
+        <span class="text-sm ml-2" v-else @click="showLogin = true">未登录</span>
+        <IconPark :icon="RightOne" theme="filled" class=" text-gray-500"></IconPark>
     </div>
 
     <el-dialog title="登录" v-model="showLogin" width="330px" append-to-body>
@@ -17,10 +19,12 @@
 </template>
 
 <script setup lang="ts">
+import IconPark from '@/components/common/IconPark.vue'
 import { useUserStore } from '@/stores/user';
-import { Lock, Phone } from '@icon-park/vue-next';
+import { Lock, Phone, RightOne } from '@icon-park/vue-next';
 import { storeToRefs } from 'pinia';
 const phone = ref('')
+const circleUrl = 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png';
 const password = ref('')
 const disabled = computed(() => {
     return phone.value == "" || password.value == ""

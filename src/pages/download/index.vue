@@ -1,6 +1,6 @@
 <template>
     <div>
-        outline
+        download
     </div>
 </template>
 
