@@ -2,9 +2,8 @@
 import BannerVue from '@/components/common/Banner.vue';
 export default defineComponent({
     setup() {
-
         return () => <div>
-            <BannerVue />
+            {/* <BannerVue /> */}
         </div>;
     }
 })

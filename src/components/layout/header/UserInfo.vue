@@ -1,7 +1,7 @@
 <template>
     <div class="flex items-center cursor-pointer">
-        <el-avatar icon="el-icon-user-solid" size="small" shape="circle" :src="profile?.avatarUrl ?? ''"
-            fit="fill"></el-avatar>
+        <el-avatar class=" flex-none" icon="el-icon-user-solid" size="small" shape="circle"
+            :src="profile?.avatarUrl ?? ''" fit="fill"></el-avatar>
         <span class="text-xs ml-1.5" v-if="isLogin">{{ profile.userName }}</span>
         <span class="text-xs ml-1.5" v-else @click="showLogin = true">点击登录</span>
     </div>

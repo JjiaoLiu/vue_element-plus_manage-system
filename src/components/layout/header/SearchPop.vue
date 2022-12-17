@@ -95,7 +95,7 @@ watch(searchKeyword, debounce(async (n, _o) => {
 </script>
 <style lang="postcss" scoped>
 :deep(.el-input__wrapper) {
-    @apply rounded-full shadow-none border-gray-300 border-solid border
+    @apply rounded-full shadow-none border-gray-300 bg-gray-100 border-solid border text-sm
 }
 
 :deep(.el-input__wrapper.is-focus) {
