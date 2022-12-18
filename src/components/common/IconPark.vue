@@ -6,7 +6,7 @@
 <script setup lang="ts">
 import type { Icon } from "@icon-park/vue-next/lib/runtime";
 
-defineProps<{
+interface Props {
   icon: Icon,
   theme?: 'outline' | 'filled' | 'two-tone' | 'multi-color',
   size?: number | string,
@@ -15,6 +15,11 @@ defineProps<{
   strokeLinecap?: 'butt' | 'round' | 'square',
   strokeLinejoin?: 'miter' | 'round' | 'bevel',
   strokeWidth?: number
-}>()
+}
+
+withDefaults(defineProps<Props>(), {
+  size: 18,
+  strokeWidth: 2
+})
 </script>
   

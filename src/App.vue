@@ -18,7 +18,7 @@ let { isInit } = toRefs(hostStore);
       </el-main>
     </el-container>
     <el-footer height="">
-      Footer content
+      <Footer />
     </el-footer>
   </el-container>
 

@@ -30,8 +30,8 @@ export interface Song {
     originCoverType: number;
     originSongSimpleData?: any;
     tagPicList?: any;
-    resourceState: boolean;
-    version: number;
+    resourceState?: boolean;
+    version?: number;
     songJumpInfo?: any;
     entertainmentTags?: any;
     single: number;

@@ -25,7 +25,6 @@ export const useUserStore = defineStore("user", () => {
     if (data.code == 200) {
       showLogin.value = false;
       profile = Object.assign(profile, data.account);
-      console.log(profile);
     }
   };
   return {

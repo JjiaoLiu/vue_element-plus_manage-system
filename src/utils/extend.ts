@@ -12,7 +12,7 @@ import {
 
 declare global {
   interface Array<T> {
-    first<T>(this: T[]): T;
+    first<T>(this: T[]): T
     last<T>(this: T[]): T;
     sample<T>(this: T[]): T;
     sampleSize<T>(this: T[], size: number): T[];

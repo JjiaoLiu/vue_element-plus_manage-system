@@ -1,6 +1,8 @@
-import axios, { type AxiosRequestConfig, type AxiosResponse } from "axios";
-import { ElMessage } from "element-plus";
-axios.defaults.baseURL = localStorage.getItem("BASE_URL")?.toString();
+/** @format */
+
+import axios, {type AxiosRequestConfig, type AxiosResponse} from "axios";
+import {ElMessage} from "element-plus";
+axios.defaults.baseURL = "http://127.0.0.1:3000"; //localStorage.getItem("BASE_URL")?.toString();
 axios.defaults.timeout = 20 * 1000;
 axios.defaults.maxBodyLength = 5 * 1024 * 1024;
 axios.defaults.withCredentials = true;
@@ -47,7 +49,7 @@ const _upload = (url: string, params: unknown) => {
   return new Promise((resolve, reject) => {
     axios
       .post(url, params, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {"Content-Type": "multipart/form-data"},
       })
       .then((res) => {
         resolve(res.data);
@@ -61,7 +63,7 @@ const _upload = (url: string, params: unknown) => {
 const _get = (url: string, params?: unknown) => {
   return new Promise((resolve, reject) => {
     axios
-      .get(url, { params })
+      .get(url, {params})
       .then((res) => {
         resolve(res.data);
       })
@@ -97,7 +99,7 @@ const _put = (url: string, params: unknown) => {
 const _delete = (url: string, params: unknown) => {
   return new Promise((resolve, reject) => {
     axios
-      .delete(url, { params })
+      .delete(url, {params})
       .then((res) => {
         resolve(res.data);
       })

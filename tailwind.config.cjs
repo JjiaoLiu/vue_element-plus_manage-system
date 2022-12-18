@@ -6,7 +6,12 @@ module.exports = {
   ],
   important: true,
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        sm: '0.7rem',
+      },
+    }
+
   },
   plugins: [],
 }
