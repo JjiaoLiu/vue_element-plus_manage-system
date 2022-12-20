@@ -1,6 +1,42 @@
+/** @format */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (prefers-color-scheme: dark) {
+  html:root {
+    color-scheme: dark;
+    --el-text-color-primary: #f3f3f3;
+    --el-bg-color: #202124;
+    --side-menu-bg-color: theme(backgroundColor.black);
+    --top-header-bg-color: theme(backgroundColor.black);
+    --app-actions-bg-color: theme(backgroundColor.gray.800);
+  }
+}
+@media (prefers-color-scheme: light) {
+  html:root {
+    color-scheme: light;
+    --el-color-black: #333333;
+    --el-bg-color: #f3f3f3;
+    --side-menu-bg-color: theme(backgroundColor.gray.300);
+    --top-header-bg-color: theme(backgroundColor.gray.100);
+    --side-header-bg-color: theme(backgroundColor.gray.200);
+  }
+}
+html {
+  color: var(--el-text-color-primary);
+  background-color: var(--el-bg-color);
+}
+.el-aside {
+  background-color: var(--side-menu-bg-color);
+}
+.el-header {
+  background-color: var(--top-header-bg-color);
+}
+.app-actions {
+  background-color: var(--app-actions-bg-color);
+}
 #app {
   width: 100vw;
   height: 100vh;

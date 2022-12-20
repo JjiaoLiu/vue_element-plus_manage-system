@@ -1,11 +1,13 @@
-import { defineConfig } from "vite";
+/** @format */
+
+import {defineConfig} from "vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import AutoImport from "unplugin-auto-import/vite";
 import Pages from "vite-plugin-pages";
 import Components from "unplugin-vue-components/vite";
-import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import {ElementPlusResolver} from "unplugin-vue-components/resolvers";
 import ElementPlus from "unplugin-element-plus/vite";
 import Inspect from "vite-plugin-inspect";
 
@@ -24,10 +26,10 @@ export default defineConfig({
         filepath: "./.eslintrc-auto-import.json", // Default `./.eslintrc-auto-import.json`
         globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
       },
-      resolvers: [ElementPlusResolver({ importStyle: "sass" })],
+      resolvers: [ElementPlusResolver({importStyle: "sass"})],
     }),
     Components({
-      resolvers: [ElementPlusResolver({ importStyle: "sass" })],
+      resolvers: [ElementPlusResolver({importStyle: "sass"})],
       dts: true,
       include: [/\.vue$/, /\.vue\?vue/, /\.tsx$/],
       //默认自动导入src/components下的组件

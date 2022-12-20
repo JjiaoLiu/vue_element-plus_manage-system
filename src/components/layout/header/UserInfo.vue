@@ -5,7 +5,7 @@
         </el-avatar>
         <span class="ml-1.5" v-if="isLogin">{{ profile.nickname }}</span>
         <span class="text-sm ml-2" v-else @click="showLogin = true">未登录</span>
-        <IconPark :icon="RightOne" theme="filled" class=" text-gray-500"></IconPark>
+        <IconPark :icon="RightOne" theme="filled" class=""></IconPark>
     </div>
 
     <el-dialog title="登录" v-model="showLogin" width="330px" append-to-body>

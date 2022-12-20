@@ -12,7 +12,7 @@
             <div v-for="item in personalized" :key="item.id">
                 <div class="group relative">
                     <img :src="item.picUrl" class="rounded-md overflow-hidden w-full" alt="" srcset="" />
-                    <div class="text-sm absolute right-2 top-1 text-white flex items-center">
+                    <div class="text-sm absolute right-2 top-1 flex items-center">
                         <IconPark :icon="PlayOne" />
                         {{ useNumberFormat(item.playCount) }}
                     </div>
@@ -23,7 +23,8 @@
                             :icon="Play" />
                     </div>
                 </div>
-                <p class="text-sm pt-2 text-gray-600 ">{{ item.name }}</p>
+                <p :style="{ '--el-primary-color': 'var(--el-text-color-regular)' }" class="text-sm pt-2 ">{{ item.name }}
+                </p>
             </div>
         </div>
     </div>
@@ -64,4 +65,7 @@ async function getPlayListDetail(id: number) {
 :deep(.el-carousel__button) {
     border-radius: var(--el-border-radius-base);
 }
+ p {
+    color:  var(--el-primary-color);
+ }
 </style>

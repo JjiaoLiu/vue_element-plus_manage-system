@@ -17,8 +17,8 @@
                 <div v-else>
                     <p class="py-1.5">单曲</p>
                     <div v-for="item in suggest.songs" :key="item.id"
-                        class="text-xs flex items-center py-1.5 px-1 whitespace-nowrap hover:bg-slate-300">
-                        <span class="text-emerald-500 whitespace-nowrap">{{ item.name }}
+                        class="text-xs flex items-center py-1.5 px-1 whitespace-nowrap ">
+                        <span class=" whitespace-nowrap">{{ item.name }}
                         </span> &nbsp; - &nbsp;
                         <p class="flex-auto overflow-hidden text-ellipsis">
                             <template v-for="artist in item.artists" :key="artist.id">
@@ -28,23 +28,23 @@
                     </div>
                     <p class="py-1.5">歌手</p>
                     <div v-for="item in suggest.artists" :key="item.id"
-                        class="flex items-center py-1.5 px-1  whitespace-nowrap hover:bg-slate-300">
+                        class="flex items-center py-1.5 px-1  whitespace-nowrap ">
                         <el-avatar class="mr-2 flex-shrink-0" icon="el-icon-user-solid" size="small" shape="circle"
                             :src="item.img1v1Url" fit="fill"></el-avatar>
                         <span class="text-xs">{{ item.name }} </span>
                     </div>
                     <p class="py-1.5">专辑</p>
                     <div v-for="item in suggest.albums" :key="item.id"
-                        class="flex items-center py-1.5 px-1  whitespace-nowrap hover:bg-slate-300">
-                        <span class="text-xs text-emerald-500">{{ item.name }} </span> &nbsp; - &nbsp;
+                        class="flex items-center py-1.5 px-1  whitespace-nowrap ">
+                        <span class="text-xs ">{{ item.name }} </span> &nbsp; - &nbsp;
                         <span class="text-xs text-ellipsis overflow-hidden"> {{ item.artist.name }}</span>
                     </div>
                     <p class="py-1.5">歌单</p>
                     <div v-for="item in suggest.playlists" :key="item.id"
-                        class="flex items-center py-1.5 px-1 whitespace-nowrap hover:bg-slate-300">
+                        class="flex items-center py-1.5 px-1 whitespace-nowrap ">
                         <el-avatar class="mr-2 flex-shrink-0" icon="el-icon-user-solid" size="small" shape="circle"
                             :src="item.coverImgUrl" fit="fill"></el-avatar>
-                        <span class="text-xs text-emerald-500 text-ellipsis overflow-hidden">{{ item.name }} </span>
+                        <span class="text-xs  text-ellipsis overflow-hidden">{{ item.name }} </span>
                     </div>
                 </div>
             </el-scrollbar>
@@ -95,7 +95,7 @@ watch(searchKeyword, debounce(async (n, _o) => {
 </script>
 <style lang="postcss" scoped>
 :deep(.el-input__wrapper) {
-    @apply rounded-full shadow-none bg-gray-100 placeholder:text-sm
+    @apply rounded-full shadow-none  placeholder:text-sm
 }
 
 :deep(.el-input__wrapper.is-focus) {
