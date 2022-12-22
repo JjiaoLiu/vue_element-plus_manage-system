@@ -1,5 +1,3 @@
-/** @format */
-
 import {defineConfig} from "vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
@@ -10,6 +8,7 @@ import Components from "unplugin-vue-components/vite";
 import {ElementPlusResolver} from "unplugin-vue-components/resolvers";
 import ElementPlus from "unplugin-element-plus/vite";
 import Inspect from "vite-plugin-inspect";
+import {log} from "console";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -36,16 +35,20 @@ export default defineConfig({
     }),
     Pages({
       exclude: ["**/components/*.vue"],
-      // importMode(filepath, options) {
-      // default resolver
-      // for (const page of options.dirs) {
-      //   if (page.baseRoute === '' && filepath.startsWith(`/${page.dir}/index`))
-      //     return 'sync'
-      // }
-      // return 'async'
-      // Load about page synchronously, all other pages are async.
-      // return filepath.indexOf("about") > -1 ? "sync" : "async";
-      // },
+      importMode(filepath, options) {
+        // default resolver
+        for (const page of options.dirs) {
+          // console.log(`/${page.dir}/index`) // /src/pages/index
+          if (
+            page.baseRoute === "" &&
+            filepath.startsWith(`/${page.dir}/index`)
+          )
+            return "sync"; //同步
+        }
+        return "async"; //异步
+        // Load about page synchronously, all other pages are async.
+        // return filepath.indexOf("about") > -1 ? "sync" : "async";
+      },
     }),
     ElementPlus({
       useSource: true,
