@@ -1,8 +1,12 @@
 <script lang="tsx">
+
 export default defineComponent({
     setup() {
         return () => <div>
-            首页
+            11111
+            {/* <el-pagination
+                total={100} background>
+            </el-pagination> */}
             {/* <BannerVue /> */}
         </div>;
     },

@@ -8,6 +8,8 @@
                 </el-tag>
             </el-carousel-item>
         </el-carousel>
+        <el-pagination :total='100' background>
+        </el-pagination>
         <div class=" grid grid-cols-5 gap-4">
             <div v-for="item in personalized" :key="item.id">
                 <div class="group relative">
@@ -23,7 +25,8 @@
                             :icon="Play" />
                     </div>
                 </div>
-                <p :style="{ '--el-primary-color': 'var(--el-text-color-regular)' }" class="text-sm pt-2 ">{{ item.name }}
+                <p :style="{ '--el-primary-color': 'var(--el-text-color-regular)' }" class="text-sm pt-2 ">{{ item.name
+                }}
                 </p>
             </div>
         </div>

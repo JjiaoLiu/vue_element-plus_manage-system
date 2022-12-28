@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,10 +6,14 @@
   html:root {
     color-scheme: dark;
     --el-text-color-primary: #f3f3f3;
-    --el-bg-color: #202124;
+    --el-text-color-regular: theme(textColor.gray.200);
+    --el-bg-color: theme(backgroundColor.gray.800);
     --side-menu-bg-color: theme(backgroundColor.black);
     --top-header-bg-color: theme(backgroundColor.black);
     --app-actions-bg-color: theme(backgroundColor.gray.800);
+    .el-pagination {
+      --el-pagination-button-bg-color: theme(backgroundColor.gray.900);
+    }
   }
 }
 @media (prefers-color-scheme: light) {

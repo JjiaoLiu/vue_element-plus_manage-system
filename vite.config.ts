@@ -8,7 +8,6 @@ import Components from "unplugin-vue-components/vite";
 import {ElementPlusResolver} from "unplugin-vue-components/resolvers";
 import ElementPlus from "unplugin-element-plus/vite";
 import Inspect from "vite-plugin-inspect";
-import {log} from "console";
 
 // https://vitejs.dev/config/
 export default defineConfig({
