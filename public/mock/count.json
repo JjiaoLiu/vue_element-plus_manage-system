@@ -1,0 +1,35 @@
+{
+  "code": 200,
+  "data": [
+    {
+      "id": 1,
+      "quantity": 1056,
+      "label": "道路总长度",
+      "unit": "公里"
+    },
+    {
+      "id": 2,
+      "quantity": 256,
+      "label": "隧道总长度",
+      "unit": "公里"
+    },
+    {
+      "id": 3,
+      "label": "设备总数量",
+      "quantity": 3076,
+      "unit": "个"
+    },
+    {
+      "id": 4,
+      "label": "今日车流量",
+      "quantity": 9096,
+      "unit": "辆"
+    },
+    {
+      "id": 5,
+      "label": "今日车流量",
+      "quantity": 9096,
+      "unit": "辆"
+    }
+  ]
+}

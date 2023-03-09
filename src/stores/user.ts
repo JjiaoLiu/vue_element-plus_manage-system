@@ -1,37 +1,43 @@
-import { UserProfile } from "./../models/user";
-import { useLogin, useLoginStatus } from "@/utils/api";
-import { defineStore } from "pinia";
+import {UserProfile} from "./../models/user";
+import {useLogin, useLoginStatus, useLogOut} from "@/utils/api";
+import {defineStore} from "pinia";
+import {useRouter} from "vue-router";
 export const useUserStore = defineStore("user", () => {
+  const router = useRouter();
   const token = ref("");
-  const cookie = ref("");
-  const showLogin = ref(false);
   let profile: UserProfile = reactive({} as UserProfile);
   const isLogin = computed(() => {
-    return profile?.userId > 0;
+    return profile?.id > 0;
   });
   const login = async (phone: string, password: string) => {
     let res = await useLogin(phone, password);
     if (res.code == 200) {
       token.value = res.token;
-      cookie.value = res.cookie;
-      document.cookie = res.cookie;
       localStorage.setItem("USER-TOKEN", token.value);
-      localStorage.setItem("USER-COOKIE", cookie.value);
+      router.replace("/");
     }
   };
   const checkLogin = async () => {
-    let { data } = await useLoginStatus();
+    let res = await useLoginStatus();
+    if (res.code == 200) {
+      profile = Object.assign(profile, res.profile);
+    }
+  };
+  const logOut = async (userId: number) => {
+    let res = await useLogOut(userId);
 
-    if (data.code == 200) {
-      showLogin.value = false;
-      profile = Object.assign(profile, data.account);
+    if (res.code == 200) {
+      profile = Object.assign({});
+      token.value = "";
+      localStorage.clear();
+      router.replace("/login");
     }
   };
   return {
     profile,
     isLogin,
-    showLogin,
     login,
     checkLogin,
+    logOut,
   };
 });

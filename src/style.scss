@@ -22,7 +22,7 @@
     --el-color-black: #333333;
     --el-bg-color: #f3f3f3;
     --side-menu-bg-color: theme(backgroundColor.gray.300);
-    --top-header-bg-color: theme(backgroundColor.gray.100);
+    --top-header-bg-color: var(--el-color-primary);
     --side-header-bg-color: theme(backgroundColor.gray.200);
   }
 }

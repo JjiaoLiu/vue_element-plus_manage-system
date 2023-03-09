@@ -1,0 +1,49 @@
+{
+  "code": 200,
+  "data": [
+    {
+      "menu": [
+        {
+          "label": "面板1",
+          "key": "index",
+          "meta": {
+            "isAdmin": false,
+            "requiresAuth": false
+          }
+        },
+        {
+          "label": "统计分析",
+          "key": "index-analysis",
+          "meta": {
+            "isAdmin": true,
+            "requiresAuth": false
+          }
+        },
+        {
+          "label": "编辑器",
+          "key": "index-editor",
+          "meta": {
+            "isAdmin": false,
+            "requiresAuth": false
+          }
+        },
+        {
+          "label": "权限管理",
+          "key": "index-permission",
+          "meta": {
+            "isAdmin": false,
+            "requiresAuth": true
+          }
+        },
+        {
+          "label": "关注",
+          "key": "attention",
+          "meta": {
+            "isAdmin": false,
+            "requiresAuth": false
+          }
+        }
+      ]
+    }
+  ]
+}

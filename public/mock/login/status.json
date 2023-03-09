@@ -1,0 +1,11 @@
+{
+  "code": 200,
+  "profile": {
+    "id": 1,
+    "userId": 1,
+    "userType": "",
+    "createTime": "",
+    "userName": "system_manager",
+    "accountType": ""
+  }
+}

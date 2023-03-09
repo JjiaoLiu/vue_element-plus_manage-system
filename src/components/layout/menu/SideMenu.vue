@@ -1,5 +1,5 @@
 <template>
-    <div v-for="menu in sideMenus" :key="menu.key" class="py-2.5">
+    <div v-for="menu in sideMenus || []" :key="menu.key" class="py-2.5">
         <template v-if="menu.label">
             <p class="px-5 pb-2 text-xs ">{{ menu.label }}</p>
         </template>
@@ -15,12 +15,13 @@
             </li>
         </ul>
     </div>
-
 </template>
 
 <script setup lang="ts">
 import IconPark from '@/components/common/IconPark.vue'
 import { useMenu } from './useMenu';
-const menu = useMenu();
-const { sideMenus, menuClick, currentKey } = menu
+import { useMenuStore } from "@/stores/menu";
+const { sideMenus } = useMenuStore()
+const menu = await useMenu(sideMenus);
+const { menuClick, currentKey } = menu
 </script>

@@ -2,7 +2,8 @@
 
 import axios, {type AxiosRequestConfig, type AxiosResponse} from "axios";
 import {ElMessage} from "element-plus";
-axios.defaults.baseURL = "http://127.0.0.1:3000"; //localStorage.getItem("BASE_URL")?.toString();
+import {delay} from "./delay";
+axios.defaults.baseURL = "http://127.0.0.1:4000/mock"; //localStorage.getItem("BASE_URL")?.toString();
 axios.defaults.timeout = 20 * 1000;
 axios.defaults.maxBodyLength = 5 * 1024 * 1024;
 axios.defaults.withCredentials = true;
@@ -21,7 +22,8 @@ axios.interceptors.request.use(
 
 axios.interceptors.response.use(
   //@ts-ignorex
-  (response: AxiosResponse) => {
+  async (response: AxiosResponse) => {
+    await delay(1000);
     if (response.status == 200) {
       return response;
     } else {
@@ -30,7 +32,7 @@ axios.interceptors.response.use(
     }
   },
   (error) => {
-    console.log(error);
+    console.log("error", error);
     return Promise.reject(error);
   }
 );
